@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>ウィザーズフォージ — 高性能ソフトウェア</title>
-    <meta name="description" content="ウィザーズフォージは、ハードウェアの性能を極限まで引き出す低レイヤーソフトウェアを構築します。CrucibleとForgeのホームページ。">
+    <title>Wizard's Forge — High-Performance Software</title>
+    <meta name="description" content="Wizard's Forge builds high-performance software close to the metal. Home of Crucible and Forge.">
     <link rel="alternate" hreflang="en" href="/en/">
     <link rel="alternate" hreflang="ja" href="/ja/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0b0b14;
@@ -29,7 +29,6 @@
             --purple-glow: rgba(107, 92, 231, 0.10);
             --mono: 'JetBrains Mono', monospace;
             --serif: 'Instrument Serif', Georgia, serif;
-            --jp: 'Noto Sans JP', sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,7 +36,7 @@
         body {
             background: var(--bg);
             color: var(--text);
-            font-family: var(--jp);
+            font-family: var(--mono);
             font-weight: 300;
             line-height: 1.7;
             min-height: 100vh;
@@ -114,11 +113,11 @@
         }
 
         .hero-descriptor {
-            font-family: var(--jp);
             font-size: 13px;
             font-weight: 400;
             color: var(--text-dim);
             letter-spacing: 0.08em;
+            text-transform: uppercase;
             position: relative;
             z-index: 1;
         }
@@ -135,7 +134,7 @@
             color: var(--text-secondary);
             max-width: 520px;
             margin: 0 auto;
-            line-height: 1.9;
+            line-height: 1.8;
         }
 
         .intro p strong {
@@ -150,7 +149,6 @@
         }
 
         .section-label {
-            font-family: var(--mono);
             font-size: 11px;
             font-weight: 500;
             color: var(--text-dim);
@@ -181,12 +179,11 @@
         .project-desc {
             font-size: 13px;
             color: var(--text-secondary);
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
         .project-tag {
             display: inline-block;
-            font-family: var(--mono);
             font-size: 10px;
             font-weight: 500;
             color: var(--text-dim);
@@ -229,18 +226,16 @@
         }
 
         .contact-label {
-            font-family: var(--jp);
             font-size: 10px;
             font-weight: 500;
             color: var(--text-dim);
             letter-spacing: 0.1em;
+            text-transform: uppercase;
             margin-bottom: 4px;
         }
 
         .contact-value {
-            font-family: var(--mono);
             word-break: break-all;
-            font-size: 13px;
         }
 
         .vcard-btn {
@@ -253,10 +248,11 @@
             border: 1px solid var(--accent);
             border-radius: 6px;
             color: var(--accent);
-            font-family: var(--jp);
+            font-family: var(--mono);
             font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.04em;
+            text-transform: uppercase;
             text-decoration: none;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -285,21 +281,18 @@
         }
 
         .person-name-jp {
-            font-family: var(--jp);
             font-size: 13px;
             color: var(--text-dim);
             font-weight: 400;
         }
 
         .person-title {
-            font-family: var(--jp);
             font-size: 12px;
             color: var(--text-secondary);
             margin-top: 4px;
         }
 
         .person-location {
-            font-family: var(--jp);
             font-size: 11px;
             color: var(--text-dim);
             margin-top: 2px;
@@ -322,7 +315,6 @@
             justify-content: center;
             gap: 12px;
             margin-top: 12px;
-            font-family: var(--mono);
             font-size: 11px;
         }
 
@@ -373,25 +365,25 @@
 <body>
     <div class="container">
         <section class="hero">
-            <img src="/wizards_forge_bold_v4_1024.png" alt="ウィザーズフォージ" class="hero-logo">
+            <img src="/wizards_forge_bold_v4_1024.png" alt="Wizard's Forge" class="hero-logo">
             <h1 class="hero-brand">Wizard's Forge</h1>
-            <div class="hero-descriptor">高性能ソフトウェア</div>
+            <div class="hero-descriptor">High-Performance Software</div>
         </section>
 
         <section class="intro">
             <p>
-                Wizard's Forgeは、<strong>ハードウェアの性能を極限まで引き出す低レイヤー・ソフトウェア</strong>を構築します。カスタムエンジン、GPUカーネル、システムレベルのツールなど、設計段階から作成することが可能です。私たちは東京を拠点に活動しています。
+                We build <strong>fast software close to the metal</strong>. Custom engines, GPU kernels, and systems-level tools — designed for performance from the ground up. Based in Tokyo.
             </p>
         </section>
 
         <section class="projects">
-            <div class="section-label">プロジェクト</div>
+            <div class="section-label">Projects</div>
 
             <div class="project">
                 <div class="project-name">Crucible</div>
                 <div>
                     <div class="project-desc">
-                        リアルタイム熱シミュレーション、DXRパストレースレンダリング、DLSS、ReSTIR、ニューラルラジアンスキャッシングを備えたボクセルエンジン。物理演算がゲーム性を定義する、シミュレーション・ファーストなゲーム。
+                        Voxel engine with real-time thermal simulation, DXR path-traced rendering, DLSS, ReSTIR, and neural radiance caching. A simulation-first game where mechanics emerge from physics.
                     </div>
                     <span class="project-tag">Game Engine · C++ · DX12</span>
                 </div>
@@ -401,23 +393,24 @@
                 <div class="project-name">Forge</div>
                 <div>
                     <div class="project-desc">
-                        独自開発のGPUコンピュートライブラリ。カスタムPTXカーネルとスパーステンソルコア演算でハードウェアの限界を押し上げます。
+                        Hand-rolled GPU compute library. Custom PTX kernels and sparse tensor core operations pushing hardware to its limits.
                     </div>
                     <span class="project-tag">GPU Compute · CUDA · PTX</span>
                 </div>
             </div>
 
+
         </section>
 
         <section class="contact">
-            <div class="section-label">お問い合わせ</div>
+            <div class="section-label">Contact</div>
             <div class="contact-grid">
                 <a href="mailto:darren@wizardsforge.io" class="contact-item">
-                    <div class="contact-label">メール</div>
+                    <div class="contact-label">Email</div>
                     <div class="contact-value">darren@wizardsforge.io</div>
                 </a>
                 <a href="tel:+81-70-4482-7091" class="contact-item">
-                    <div class="contact-label">電話</div>
+                    <div class="contact-label">Phone</div>
                     <div class="contact-value">070-4482-7091</div>
                 </a>
             </div>
@@ -428,7 +421,7 @@
                     <polyline points="7 10 12 15 17 10"/>
                     <line x1="12" y1="15" x2="12" y2="3"/>
                 </svg>
-                連絡先を保存
+                Save Contact
             </a>
         </section>
 
@@ -436,17 +429,17 @@
             <div>
                 <div class="person-name">Darren Sander</div>
                 <div class="person-name-jp">サンダー・ダレン</div>
-                <div class="person-title">創設者 · Founder</div>
-                <div class="person-location">東京都</div>
+                <div class="person-title">Founder · 創設者</div>
+                <div class="person-location">Tokyo, Japan</div>
             </div>
         </section>
 
         <footer>
             <p>&copy; 2025 Wizard's Forge. All rights reserved.</p>
             <div class="lang-switch">
-                <a href="/en/" onclick="document.cookie='lang=en;path=/;max-age=31536000;SameSite=Lax;Secure';">EN</a>
+                <span class="lang-current">EN</span>
                 <span>|</span>
-                <span class="lang-current">日本語</span>
+                <a href="/ja/" onclick="document.cookie='lang=ja;path=/;max-age=31536000;SameSite=Lax;Secure';">日本語</a>
             </div>
         </footer>
     </div>
