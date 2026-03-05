@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Sander;Darren;;;
+FN:Darren Sander
+ORG:Wizard's Forge
+TITLE:Founder
+TEL;TYPE=CELL,VOICE:+81 70-4482-7091
+EMAIL;TYPE=WORK,INTERNET:darren@wizardsforge.io
+URL:https://wizardsforge.io
+ADR;TYPE=WORK:;;;Tokyo;;;Japan
+NOTE:High-Performance Software
+END:VCARD
