@@ -6,6 +6,19 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Wizard's Forge — High-Performance Software</title>
     <meta name="description" content="Wizard's Forge builds high-performance software close to the metal. Home of Crucible and Forge.">
+    <link rel="alternate" hreflang="ja" href="/ja/">
+    <script>
+        (function () {
+            var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            var tz = '';
+            try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) {}
+            if ((lang === 'ja' || lang.indexOf('ja-') === 0 || tz === 'Asia/Tokyo') &&
+                window.location.pathname !== '/ja/' &&
+                window.location.pathname.indexOf('/ja/') !== 0) {
+                window.location.replace('/ja/');
+            }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
@@ -308,6 +321,30 @@
             text-align: center;
         }
 
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 12px;
+            font-size: 11px;
+        }
+
+        .lang-switch a {
+            color: var(--text-dim);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: color 0.2s ease;
+        }
+
+        .lang-switch a:hover {
+            color: var(--accent);
+        }
+
+        .lang-switch .lang-current {
+            color: var(--text-secondary);
+            cursor: default;
+        }
+
         /* Animations */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(16px); }
@@ -410,6 +447,11 @@
 
         <footer>
             <p>&copy; 2025 Wizard's Forge. All rights reserved.</p>
+            <div class="lang-switch">
+                <span class="lang-current">EN</span>
+                <span>|</span>
+                <a href="/ja/">日本語</a>
+            </div>
         </footer>
     </div>
 </body>
