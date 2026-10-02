@@ -4,444 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Wizard's Forge — High-Performance Software</title>
-    <meta name="description" content="Wizard's Forge builds high-performance software close to the metal. Home of Crucible and Forge.">
+    <title>Wizard's Forge — Crucible</title>
+    <meta name="description" content="Crucible. In development at Wizard's Forge.">
+    <meta name="theme-color" content="#0b0b14">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Wizard's Forge">
+    <meta property="og:title" content="Crucible">
+    <meta property="og:description" content="In development at Wizard's Forge.">
+    <meta property="og:url" content="https://wizardsforge.io/en/">
+    <meta property="og:image" content="https://wizardsforge.io/wizards_forge_bold_v4_1024.png">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/svg+xml" href="/wizards_forge_bold_v4_1024.svg">
     <link rel="alternate" hreflang="en" href="/en/">
     <link rel="alternate" hreflang="ja" href="/ja/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0b0b14;
-            --surface: #10101c;
-            --surface-2: #161626;
-            --border: #1e1e35;
-            --border-subtle: #16162a;
-            --text: #cdc9be;
-            --text-bright: #e2ded4;
-            --text-secondary: #8a8797;
-            --text-dim: #56546a;
-            --accent: #f97316;
-            --accent-warm: #f59e0b;
-            --accent-glow: rgba(249, 115, 22, 0.12);
-            --accent-subtle: rgba(249, 115, 22, 0.06);
-            --purple: #6b5ce7;
-            --purple-glow: rgba(107, 92, 231, 0.10);
-            --mono: 'JetBrains Mono', monospace;
-            --serif: 'Instrument Serif', Georgia, serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--mono);
-            font-weight: 300;
-            line-height: 1.7;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Grid bg */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(var(--border-subtle) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
-            background-size: 60px 60px;
-            opacity: 0.2;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* ===== HERO ===== */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 72px 0 56px;
-            text-align: center;
-            position: relative;
-        }
-
-        /* Glow behind logo */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 400px;
-            height: 300px;
-            background:
-                radial-gradient(ellipse 180px 160px at 50% 50%, var(--accent-glow) 0%, transparent 70%),
-                radial-gradient(ellipse 300px 250px at 50% 50%, var(--purple-glow) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .hero-logo {
-            width: 160px;
-            height: 160px;
-            border-radius: 20px;
-            object-fit: cover;
-            position: relative;
-            z-index: 1;
-            margin-bottom: 28px;
-        }
-
-        .hero-brand {
-            font-family: var(--serif);
-            font-size: 38px;
-            font-weight: 400;
-            color: var(--text-bright);
-            letter-spacing: -0.01em;
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-descriptor {
-            font-size: 13px;
-            font-weight: 400;
-            color: var(--text-dim);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ===== INTRO ===== */
-        .intro {
-            padding: 0 0 40px;
-            border-bottom: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .intro p {
-            font-size: 15px;
-            color: var(--text-secondary);
-            max-width: 520px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        .intro p strong {
-            color: var(--text-bright);
-            font-weight: 500;
-        }
-
-        /* ===== PROJECTS ===== */
-        .projects {
-            padding: 40px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-label {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--text-dim);
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-
-        .project {
-            padding: 20px 0;
-            display: grid;
-            grid-template-columns: 130px 1fr;
-            gap: 20px;
-            align-items: baseline;
-        }
-
-        .project + .project {
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .project-name {
-            font-family: var(--serif);
-            font-size: 22px;
-            font-style: italic;
-            color: var(--accent);
-        }
-
-        .project-desc {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .project-tag {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 500;
-            color: var(--text-dim);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            padding: 2px 7px;
-            margin-top: 6px;
-        }
-
-        /* ===== CONTACT ===== */
-        .contact {
-            padding: 40px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
-
-        .contact-item {
-            padding: 14px 18px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 13px;
-            transition: all 0.2s ease;
-            display: block;
-        }
-
-        .contact-item:hover {
-            border-color: var(--accent);
-            background: var(--accent-subtle);
-            color: var(--text-bright);
-        }
-
-        .contact-label {
-            font-size: 10px;
-            font-weight: 500;
-            color: var(--text-dim);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-
-        .contact-value {
-            word-break: break-all;
-        }
-
-        .vcard-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 22px;
-            padding: 11px 22px;
-            background: transparent;
-            border: 1px solid var(--accent);
-            border-radius: 6px;
-            color: var(--accent);
-            font-family: var(--mono);
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .vcard-btn:hover {
-            background: var(--accent);
-            color: var(--bg);
-        }
-
-        .vcard-btn svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        /* ===== PERSON ===== */
-        .person {
-            padding: 40px 0 60px;
-        }
-
-        .person-name {
-            font-family: var(--serif);
-            font-size: 20px;
-            color: var(--text-bright);
-            margin-bottom: 2px;
-        }
-
-        .person-name-jp {
-            font-size: 13px;
-            color: var(--text-dim);
-            font-weight: 400;
-        }
-
-        .person-title {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin-top: 4px;
-        }
-
-        .person-location {
-            font-size: 11px;
-            color: var(--text-dim);
-            margin-top: 2px;
-        }
-
-        /* Footer */
-        footer {
-            padding: 20px 0 36px;
-            border-top: 1px solid var(--border);
-        }
-
-        footer p {
-            font-size: 11px;
-            color: var(--text-dim);
-            text-align: center;
-        }
-
-        .lang-switch {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 12px;
-            font-size: 11px;
-        }
-
-        .lang-switch a {
-            color: var(--text-dim);
-            text-decoration: none;
-            letter-spacing: 0.05em;
-            transition: color 0.2s ease;
-        }
-
-        .lang-switch a:hover {
-            color: var(--accent);
-        }
-
-        .lang-switch .lang-current {
-            color: var(--text-secondary);
-            cursor: default;
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(16px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero, .intro, .projects, .contact, .person {
-            animation: fadeUp 0.6s ease-out both;
-        }
-        .intro { animation-delay: 0.08s; }
-        .projects { animation-delay: 0.16s; }
-        .contact { animation-delay: 0.24s; }
-        .person { animation-delay: 0.32s; }
-
-        @media (max-width: 600px) {
-            .hero { padding: 48px 0 40px; }
-            .hero-logo { width: 120px; height: 120px; }
-            .hero-brand { font-size: 28px; }
-            .project {
-                grid-template-columns: 1fr;
-                gap: 6px;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
     <div class="container">
-        <section class="hero">
-            <img src="../wizards_forge_bold_v4_1024.svg" alt="Wizard's Forge" class="hero-logo">
-            <h1 class="hero-brand">Wizard's Forge</h1>
-            <div class="hero-descriptor">High-Performance Software</div>
-        </section>
+        <header class="hero">
+            <svg class="hero-logo" viewBox="-2.0 -2.0 27.5 27.5" role="img" aria-label="Wizard's Forge logo">
+                <path class="stroke" pathLength="1" d="M 1.417 23.244 C 21.827 23.244 22.610 23.244 23.244 22.610 L 23.244 21.827 C 23.244 1.417 23.244 0.634 22.610 0.0 L 21.827 0.0 C 1.417 0.0 0.634 0.0 0.0 0.634 L 0.0 1.417 C 0.0 21.827 0.0 22.610 0.634 23.244 Z" stroke="#f97216" fill="none" stroke-width="1.275" stroke-linejoin="round"/>
+                <path class="stroke" pathLength="1" d="M 11.622 4.184 L 4.184 19.060 L 19.060 19.060 Z" stroke="#f97216" fill="none" stroke-width="1.559" stroke-linejoin="round"/>
+                <circle class="core" cx="11.622" cy="16.736" r="1.559" fill="#f97216"/>
+            </svg>
+            <div class="hero-brand">Wizard's Forge</div>
+        </header>
 
-        <section class="intro">
-            <p>
-                We build <strong>fast software close to the metal</strong>. Custom engines, GPU kernels, and systems-level tools — designed for performance from the ground up. Based in Tokyo.
-            </p>
-        </section>
-
-        <section class="projects">
-            <div class="section-label">Projects</div>
-
-            <div class="project">
-                <div class="project-name">Crucible</div>
-                <div>
-                    <div class="project-desc">
-                        Voxel engine with real-time thermal simulation, DXR path-traced rendering, DLSS, ReSTIR, and neural radiance caching. A simulation-first game where mechanics emerge from physics.
-                    </div>
-                    <span class="project-tag">Game Engine · C++ · DX12</span>
+        <main class="teaser">
+            <div class="teaser-stage" data-heat>
+                <canvas aria-hidden="true"></canvas>
+                <span class="corner tl"></span><span class="corner tr"></span>
+                <span class="corner bl"></span><span class="corner br"></span>
+                <div class="teaser-title">
+                    <h1 class="teaser-name"><span>Crucible</span></h1>
+                    <div class="teaser-status"><span class="status-dot"></span>In development</div>
                 </div>
+                <div class="hud hud-hint" data-touch="Drag to add heat">Move your cursor to add heat</div>
             </div>
-
-            <div class="project">
-                <div class="project-name">Forge</div>
-                <div>
-                    <div class="project-desc">
-                        Hand-rolled GPU compute library. Custom PTX kernels and sparse tensor core operations pushing hardware to its limits.
-                    </div>
-                    <span class="project-tag">GPU Compute · CUDA · PTX</span>
-                </div>
-            </div>
-
-
-        </section>
-
-        <section class="contact">
-            <div class="section-label">Contact</div>
-            <div class="contact-grid">
-                <a href="mailto:darren@wizardsforge.io" class="contact-item">
-                    <div class="contact-label">Email</div>
-                    <div class="contact-value">darren@wizardsforge.io</div>
-                </a>
-                <a href="https://github.com/WizardsForgeGames" class="contact-item" target="_blank" rel="noopener">
-                    <div class="contact-label">GitHub</div>
-                    <div class="contact-value">WizardsForgeGames</div>
-                </a>
-            </div>
-
-            <a href="../darren-sander.vcf" class="vcard-btn" download>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="7 10 12 15 17 10"/>
-                    <line x1="12" y1="15" x2="12" y2="3"/>
-                </svg>
-                Save Contact
-            </a>
-        </section>
-
-        <section class="person">
-            <div>
-                <div class="person-name">Darren Sander</div>
-                <div class="person-name-jp">サンダー・ダレン</div>
-                <div class="person-title">Founder · 創設者</div>
-                <div class="person-location">Tokyo, Japan</div>
-            </div>
-        </section>
+        </main>
 
         <footer>
-            <p>&copy; 2025 Wizard's Forge. All rights reserved.</p>
+            <div class="people">
+                <div class="person"><span class="person-name">Darren Sander</span><a href="mailto:darren@wizardsforge.io">darren@wizardsforge.io</a></div>
+                <div class="person"><span class="person-name">Alexander Hoover</span><a href="mailto:alexander@wizardsforge.io">alexander@wizardsforge.io</a></div>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/WizardsForgeGames" target="_blank" rel="noopener">GitHub</a>
+                <a href="../darren-sander.vcf" download>Save Darren's contact</a>
+            </div>
             <div class="lang-switch">
                 <span class="lang-current">EN</span>
                 <span>|</span>
                 <a href="/ja/" onclick="document.cookie='lang=ja;path=/;max-age=31536000;SameSite=Lax;Secure';">日本語</a>
             </div>
+            <p>&copy; 2026 Wizard's Forge</p>
         </footer>
     </div>
+    <script src="/assets/heat.js" defer></script>
 </body>
 </html>
